@@ -17,9 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from api import views
 
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-	path('api', views.tlist),
-	path('api/<int:id>', views.todo_detail),
-	path('api/admin', views.allUsers_todo),
+    path('api', views.tlist),
+    path('api/<int:id>', views.todo_detail),
+    path('api/admin', views.allUsers_todo),
+    path('signup', views.signup),
 ]
