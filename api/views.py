@@ -4,10 +4,11 @@ from rest_framework.parsers import JSONParser
 from rest_framework import status
 
 
-from api.models import ToDo
-from api.serializers import apiSerializer
+from api.models import ToDo,Signup
+from api.serializers import apiSerializer, signupSerializer
 from rest_framework.decorators import api_view
-
+#from rest_framework.permissions import IsAuthenticated 
+#permission_classes = (IsAuthenticated,)            
 
 # Create your views here.
 @api_view(['GET','POST','DELETE'])
@@ -53,8 +54,25 @@ def todo_detail(request, id):
 
 @api_view(['GET'])	
 def allUsers_todo(request):
-	todo = Todo.objects.all()
+    todo = Todo.objects.all()
 	
-	if request.method== 'GET':
-		todo_serializer = apiSerializer(todo,many=True)
-		return JsonResponse(todo_serializer.data, safe=False)
+    if request.method== 'GET':
+        todo_serializer = apiSerializer(todo,many=True)
+        return JsonResponse(todo_serializer.data, safe=False)
+        
+@api_view(['GET','POST'])
+def signup(request):
+    if request.method =='POST':
+        data = JSONParser().parse(request)
+        signup_serializer = signupSerializer(data=data)
+        if signup_serializer.is_valid():
+            signup_serializer.save()
+            return JsonResponse(signup_serializer.data, status=status.HTTP_201_CREATED)
+        return JsonResponse(signup_serializer.errors, status=status.HTTP_400_BAD_REQUEST)	
+    elif request.method == 'GET':
+        data = Signup.objects.all()
+        signup_serializer = signupSerializer(data, many=True)
+        return JsonResponse(signup_serializer.data, safe=False)
+        
+#@api_view(['GET'])
+#def login()        
