@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser
 from rest_framework import status
-
+import requests
 
 from api.models import ToDo,Signup
 from api.serializers import apiSerializer, signupSerializer
@@ -75,4 +75,12 @@ def signup(request):
         return JsonResponse(signup_serializer.data, safe=False)
         
 #@api_view(['GET'])
-#def login()        
+#def login()  
+
+
+
+def index(request):
+	response = requests.get('http://localhost:8000/api')
+	data = response.json()
+	return render(request, 'index.html',{'data': data})       
+	
