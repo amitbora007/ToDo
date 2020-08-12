@@ -1,0 +1,54 @@
+
+{% extends "base.html" %}
+	{% block contenthead %}
+	
+	{% endblock %}
+	{% block content1 %}
+		<div class="card bg-warning text-black "><b>Data </b> <br>
+			<div class="card-footer d-flex align-items-center justify-content-between">
+			
+               {% for i in data %}
+				   ID 	{{i.id}} <br>
+				   Todo {{i.todo}}<br>
+				   Comment {{i.comment}}<br>
+				   Reply {{i.reply}}<br>
+				   Status {{i.status}}<br>
+				   End Date {{i.end}}
+			   {% endfor %}
+			</div>
+        </div><hr>
+		<div>
+			<div> <b> Add Todo </b><br>
+               <form method="POST"> {%csrf_token%}
+				   <input type="text" name="todo" id="todo" placeholder="Task">
+				   <input type="text" name="comment" id="comment" placeholder="Comment">
+				   <input type="text" name="reply" id="reply" placeholder="Reply">
+				   <input type="date" name="end" id="end" placeholder="End Date">
+				   <input type="text" name="status" id="status" placeholder="Status">
+				   <button type="button" name="add" id="add" >Add</button>			   
+				</form>
+			</div>
+        </div><hr>	
+		<div>
+			<div> <b>Update Todo </b> <br>
+               <form method="POST">{%csrf_token%}
+				   <input type="text" name="id" id="id" placeholder="ID of the task to update">
+				   <input type="text" name="todo" id="todo" placeholder="Task">
+				   <input type="text" name="comment" id="comment" placeholder="Comment">
+				   <input type="text" name="reply" id="reply" placeholder="Reply">
+				   <input type="date" name="end" id="end" placeholder="End Date">
+				   <input type="text" name="status" id="status" placeholder="Status">
+				   <button type="button" name="update" id="update">Update </button>			   
+				</form>
+			</div>
+        </div><hr>
+		<div>
+			<div> <b>Delete Todo </b><br>
+               <form method="POST">{%csrf_token%}
+				   <input type="text" name="id" id="id" placeholder="ID of the task to remove">
+				   <button type="button" name="delete" id="delete">	Delete</button>		   
+				</form>
+			</div>
+        </div>	
+	{% endblock %}
+

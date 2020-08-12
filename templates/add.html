@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+	{% block contenthead %}
+	
+	{% endblock %}
+	{% block content1 %}
+	<div class="card bg-warning text-black ">
+			<div class="card-footer d-flex align-items-center justify-content-between">
+                <form method="POST" action=" /api " >{%csrf_token%} 
+					<label for="todo"> ToDo </label>
+					<input type="text" name="todo" class="form-control" placeholder="to be added in list" required>
+						
+					<label for="comment"> Comment </label>
+					<input type="text" name="comment" class="form-control" placeholder="comment" required>
+					
+					<label for="reply"> Reply </label>
+					<input type="text" name="reply" class="form-control" placeholder="reply" required>
+					
+					<label for="status"> Status </label>
+					<input type="text" name="status" class="form-control" placeholder="status" required>
+					
+					<label for="end"> End Date </label>
+					<input type="date" name="end" class="form-control" placeholder="end" required>
+					
+					<input type="submit" name="submit" class="form-control btn btn-primary" value="Submit"></tr>
+				</form>
+				
+			</div>
+       </div>		
+	{% endblock %}
