@@ -107,7 +107,8 @@
 					$.post('http://localhost:8000/api', data);
 				});
 				$('#update').click(function() {
-					var id = $('#uid').val();
+					var id = Number($('#uid').val());
+					//console.log(typeof id);
 					var todo = $('#utodo').val();
 					var comment = $('#ucomment').val();
 					var reply = $('#ureply').val();
@@ -128,6 +129,7 @@
 					$.ajax({
 						url: 'http://localhost:8000/api/'+id,
 						type: 'PUT',
+						contentType: 'application/json',
 						success: function(result){
 							console.log('updated');
 						}	
