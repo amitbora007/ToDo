@@ -21,8 +21,10 @@ from api import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api', views.tlist),
-    path('api/<int:id>', views.todo_detail),
-    path('api/admin', views.allUsers_todo),
-    path('signup', views.signup),
+    path('api', views.tlist, name="listing"),
+    path('api/<int:id>', views.todo_detail, name="detail"),
+    path('api/admin', views.allUsers_todo, name="all"),
+    path('signup', views.signup, name="sign"),
+    path('',views.index, name='index')
+   
 ]
