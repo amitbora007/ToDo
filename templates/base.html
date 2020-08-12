@@ -87,11 +87,11 @@
 			$(function() {
 				$('#add').click(function() {
 					//$.post('/newproduct', {name:'New Product JS', price:555, });
-					var todo = $('#todo').val();
-					var comment = $('#comment').val();
-					var reply = $('#reply').val();
-					var end = $('#end').val();
-					var tstatus = $('#status').val();
+					var todo = $('#atodo').val();
+					var comment = $('#acomment').val();
+					var reply = $('#areply').val();
+					var end = $('#aend').val();
+					var tstatus = $('#astatus').val();
 					
 					console.log(todo,comment,reply,end,tstatus);
 					var content = {todo: todo,
@@ -107,14 +107,14 @@
 					$.post('http://localhost:8000/api', data);
 				});
 				$('#update').click(function() {
-					var id = $('#id').val();
-					var todo = $('#todo').val();
-					var comment = $('#comment').val();
-					var reply = $('#reply').val();
-					var end = $('#end').val();
-					var tstatus = $('#status').val();
+					var id = $('#uid').val();
+					var todo = $('#utodo').val();
+					var comment = $('#ucomment').val();
+					var reply = $('#ureply').val();
+					var end = $('#uend').val();
+					var tstatus = $('#ustatus').val();
 					
-					console.log(todo,comment,reply,end,tstatus);
+					console.log(id,todo,comment,reply,end,tstatus);
 					var content = {todo: todo,
 						comment: comment,
 						reply: reply,
@@ -125,12 +125,24 @@
 					var data = JSON.stringify(content);
 					console.log(data);
 					
-					$.ajax('PUT http://localhost:8000/api/'+id, data);
+					$.ajax({
+						url: 'http://localhost:8000/api/'+id,
+						type: 'PUT',
+						success: function(result){
+							console.log('updated');
+						}	
+					});
 				});
 				$('#delete').click(function() {
-					var id = $('#id').val();
+					var id = $('#did').val();
 					console.log(id);
-					$.ajax('DELETE http://localhost:8000/api/'+id);
+					$.ajax({
+						url: 'http://localhost:8000/api/'+id,
+						type: 'DELETE',
+						success: function(result){
+							console.log('deleted');
+						}	
+					});
 				});
 			});
 		</script>
