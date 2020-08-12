@@ -32,7 +32,7 @@ class Migration(migrations.Migration):
                 ('reply', models.CharField(max_length=250)),
                 ('status', models.CharField(max_length=10)),
                 ('created', models.DateTimeField(auto_now_add=True)),
-                ('end', models.DateTimeField()),
+                ('end', models.DateField()),
                 ('updated', models.DateTimeField(auto_now=True)),
             ],
         ),
