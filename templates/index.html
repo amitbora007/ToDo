@@ -20,11 +20,11 @@
 		<div>
 			<div> <b> Add Todo </b><br>
                <form method="POST"> {%csrf_token%}
-				   <input type="text" name="todo" id="todo" placeholder="Task">
-				   <input type="text" name="comment" id="comment" placeholder="Comment">
-				   <input type="text" name="reply" id="reply" placeholder="Reply">
-				   <input type="date" name="end" id="end" placeholder="End Date">
-				   <input type="text" name="status" id="status" placeholder="Status">
+				   <input type="text" name="todo" id="atodo" placeholder="Task">
+				   <input type="text" name="comment" id="acomment" placeholder="Comment">
+				   <input type="text" name="reply" id="areply" placeholder="Reply">
+				   <input type="date" name="end" id="aend" placeholder="End Date">
+				   <input type="text" name="status" id="astatus" placeholder="Status">
 				   <button type="button" name="add" id="add" >Add</button>			   
 				</form>
 			</div>
@@ -32,12 +32,12 @@
 		<div>
 			<div> <b>Update Todo </b> <br>
                <form method="POST">{%csrf_token%}
-				   <input type="text" name="id" id="id" placeholder="ID of the task to update">
-				   <input type="text" name="todo" id="todo" placeholder="Task">
-				   <input type="text" name="comment" id="comment" placeholder="Comment">
-				   <input type="text" name="reply" id="reply" placeholder="Reply">
-				   <input type="date" name="end" id="end" placeholder="End Date">
-				   <input type="text" name="status" id="status" placeholder="Status">
+				   <input type="text" name="id" id="uid" placeholder="ID of the task to update">
+				   <input type="text" name="todo" id="utodo" placeholder="Task">
+				   <input type="text" name="comment" id="ucomment" placeholder="Comment">
+				   <input type="text" name="reply" id="ureply" placeholder="Reply">
+				   <input type="date" name="end" id="uend" placeholder="End Date">
+				   <input type="text" name="status" id="ustatus" placeholder="Status">
 				   <button type="button" name="update" id="update">Update </button>			   
 				</form>
 			</div>
@@ -45,7 +45,7 @@
 		<div>
 			<div> <b>Delete Todo </b><br>
                <form method="POST">{%csrf_token%}
-				   <input type="text" name="id" id="id" placeholder="ID of the task to remove">
+				   <input type="text" name="id" id="did" placeholder="ID of the task to remove">
 				   <button type="button" name="delete" id="delete">	Delete</button>		   
 				</form>
 			</div>
